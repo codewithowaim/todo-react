@@ -21,7 +21,7 @@ function TodoList() {
   };
   
   const handleDelete = (index) => {
-    const filtered = tasks.splice(index, 0 , 1);
+    const filtered = tasks.splice(index, 1);
     setTasks(filtered);
     if (editIndex === index) setEditIndex(null);
   };
