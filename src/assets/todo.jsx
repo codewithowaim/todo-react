@@ -21,8 +21,9 @@ function TodoList() {
   };
   
   const handleDelete = (index) => {
-    const filtered = tasks.splice(index, 1);
-    setTasks(filtered);
+    const tempTasks = [...tasks];
+    tempTasks.splice(index, 1);
+    setTasks(tempTasks);
     if (editIndex === index) setEditIndex(null);
   };
 
@@ -32,7 +33,7 @@ function TodoList() {
   };
 
    const handleKeyPress = (e) => {
-    if (e.key === "Enter") handleAddOrUpdate(); // ✅ add by Enter key
+    if (e.key === "Enter") handleAddOrUpdate(); 
   };
 
   return (
@@ -62,7 +63,6 @@ function TodoList() {
         📋Todo List
       </h1>
 
-      {/* Input Section */}
       <div
         style={{
           background: "rgba(255, 255, 255, 0.05)",
@@ -122,7 +122,6 @@ function TodoList() {
         </button>
       </div>
 
-      {/* Task List */}
       <ul style={{ listStyle: "none", padding: 0, width: "380px" }}>
         {tasks.map((task, index) => (
           <li
